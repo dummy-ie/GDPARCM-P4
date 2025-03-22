@@ -9,8 +9,7 @@ namespace gdeng03
 		NOT_SET = -1,
 		SCRIPT,
 		RENDERER,
-		INPUT,
-		PHYSICS
+		INPUT
 	};
 
 	inline const char* ToString(const ComponentType e)
@@ -21,7 +20,6 @@ namespace gdeng03
 		case ComponentType::SCRIPT: return "Script";
 		case ComponentType::RENDERER: return "Renderer";
 		case ComponentType::INPUT: return "Input";
-		case ComponentType::PHYSICS: return "Physics";
 		default: return "Unknown Component Type";
 		}
 	}

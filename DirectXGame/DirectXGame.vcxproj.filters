@@ -88,9 +88,6 @@
     <Filter Include="GameEngine\EntityComponentSystem\BaseComponentSystem">
       <UniqueIdentifier>{cb4e293d-ce70-4f37-bd12-f42638fc32e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameEngine\EntityComponentSystem\BaseComponentSystem\PhysicsSystem">
-      <UniqueIdentifier>{1bd48dd6-1f01-4e9b-8066-12b4d43a0ee7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameEngine\GraphicsEngine\ShaderLibrary">
       <UniqueIdentifier>{959dc32c-3e91-4a53-8b96-ed0740a72f79}</UniqueIdentifier>
     </Filter>
@@ -249,12 +246,6 @@
     <ClCompile Include="BaseComponentSystem.cpp">
       <Filter>GameEngine\EntityComponentSystem\BaseComponentSystem</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsSystem.cpp">
-      <Filter>GameEngine\EntityComponentSystem\BaseComponentSystem\PhysicsSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsComponent.cpp">
-      <Filter>GameEngine\EntityComponentSystem\Components</Filter>
-    </ClCompile>
     <ClCompile Include="ShaderLibrary.cpp">
       <Filter>GameEngine\GraphicsEngine\ShaderLibrary</Filter>
     </ClCompile>
@@ -334,6 +325,9 @@
       <Filter>GameEngine\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="StringUtils.cpp">
+      <Filter>GameEngine\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="FileUtils.cpp">
       <Filter>GameEngine\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -500,12 +494,6 @@
     <ClInclude Include="BaseComponentSystem.h">
       <Filter>GameEngine\EntityComponentSystem\BaseComponentSystem</Filter>
     </ClInclude>
-    <ClInclude Include="PhysicsSystem.h">
-      <Filter>GameEngine\EntityComponentSystem\BaseComponentSystem\PhysicsSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsComponent.h">
-      <Filter>GameEngine\EntityComponentSystem\Components</Filter>
-    </ClInclude>
     <ClInclude Include="ShaderLibrary.h">
       <Filter>GameEngine\GraphicsEngine\ShaderLibrary</Filter>
     </ClInclude>
@@ -596,6 +584,9 @@
     <ClInclude Include="StringUtils.h">
       <Filter>GameEngine\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="FileUtils.h">
+      <Filter>GameEngine\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
@@ -621,10 +612,5 @@
     <FxCompile Include="DebugRendererPixelShader.hlsl">
       <Filter>App\HLSL</Filter>
     </FxCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="libraries\reactphysics3d\lib\reactphysics3d.lib">
-      <Filter>Libraries</Filter>
-    </Library>
   </ItemGroup>
 </Project>

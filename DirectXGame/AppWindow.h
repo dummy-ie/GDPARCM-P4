@@ -9,7 +9,6 @@
 // #define TINYOBJLOADER_IMPLEMENTATION
 // #include "tiny_obj_loader.h"
 
-#include <reactphysics3d/reactphysics3d.h>
 
 #include "imgui.h"
 #include <backends/imgui_impl_win32.h>

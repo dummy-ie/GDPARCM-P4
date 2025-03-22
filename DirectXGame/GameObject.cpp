@@ -125,8 +125,6 @@ namespace gdeng03
 			child->setRotation(globalRotation + child->getLocalRotation());
 		}*/
 
-		const reactphysics3d::Quaternion quat = reactphysics3d::Quaternion::fromEulerAngles(rotation.x, rotation.y, rotation.z);
-		orientation = Vector4D(quat.x, quat.y, quat.z, quat.w);
 
 		updateLocalMatrix();
 	}
@@ -144,8 +142,6 @@ namespace gdeng03
 			child->setRotation(globalRotation + child->getLocalRotation());
 		}*/
 
-		const reactphysics3d::Quaternion quat = reactphysics3d::Quaternion::fromEulerAngles(rotation.x, rotation.y, rotation.z);
-		orientation = Vector4D(quat.x, quat.y, quat.z, quat.w);
 		updateLocalMatrix();
 	}
 
@@ -244,14 +240,14 @@ namespace gdeng03
 			child->updateLocalMatrix();
 		}
 
-		ComponentList result = getComponentsOfType(ComponentType::PHYSICS);
-		if (result.size() == 0) return;
-		PhysicsComponent* physicsComponent = reinterpret_cast<PhysicsComponent*>(result.front());
-		if (physicsComponent != nullptr)
-		{
-			physicsComponent->updateRigidbodyTransform();
-			//physicsComponent->setTransformFromOpenGL(getPhysicsLocalMatrix());
-		}
+		// ComponentList result = getComponentsOfType(ComponentType::PHYSICS);
+		// if (result.size() == 0) return;
+		// PhysicsComponent* physicsComponent = reinterpret_cast<PhysicsComponent*>(result.front());
+		// if (physicsComponent != nullptr)
+		// {
+		// 	physicsComponent->updateRigidbodyTransform();
+		// 	//physicsComponent->setTransformFromOpenGL(getPhysicsLocalMatrix());
+		// }
 	}
 
 	//void GameObject::updateGlobalMatrix()
@@ -635,15 +631,15 @@ namespace gdeng03
 			orientation = lastEditState->getStoredOrientation();
 			localMatrix = lastEditState->getStoredMatrix();
 
-			for (const ComponentList physicsList = getComponentsOfType(ComponentType::PHYSICS);
-				Component * component : physicsList)
-			{
-				PhysicsComponent* physicsComponent = dynamic_cast<PhysicsComponent*>(component);
-				//physicsComponent->setTransformFromOpenGL(localMatrix.getMatrix());
-				physicsComponent->updateRigidbodyTransform();
-				physicsComponent->getRigidBody()->setAngularVelocity(Vector3(0, 0, 0));
-				physicsComponent->getRigidBody()->setLinearVelocity(Vector3(0, 0, 0));
-			}
+			// for (const ComponentList physicsList = getComponentsOfType(ComponentType::PHYSICS);
+			// 	Component * component : physicsList)
+			// {
+			// 	PhysicsComponent* physicsComponent = dynamic_cast<PhysicsComponent*>(component);
+			// 	//physicsComponent->setTransformFromOpenGL(localMatrix.getMatrix());
+			// 	physicsComponent->updateRigidbodyTransform();
+			// 	physicsComponent->getRigidBody()->setAngularVelocity(Vector3(0, 0, 0));
+			// 	physicsComponent->getRigidBody()->setLinearVelocity(Vector3(0, 0, 0));
+			// }
 
 			//LogUtils::log(this->getUniqueName() + "restored scale: " + lastEditState->getStoredScale().toString());
 

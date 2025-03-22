@@ -5,19 +5,19 @@ namespace gdeng03
 {
 	BaseComponentSystem* BaseComponentSystem::sharedInstance = nullptr;
 
-	PhysicsSystem* BaseComponentSystem::getPhysicsSystem() const
-	{
-		return physicsSystem;
-	}
+	// PhysicsSystem* BaseComponentSystem::getPhysicsSystem() const
+	// {
+	// 	return physicsSystem;
+	// }
 
 	BaseComponentSystem::BaseComponentSystem()
 	{
-		physicsSystem = new PhysicsSystem();
+		//physicsSystem = new PhysicsSystem();
 	}
 
 	BaseComponentSystem::~BaseComponentSystem()
 	{
-		delete physicsSystem;
+		//delete physicsSystem;
 		delete sharedInstance;
 	}
 }

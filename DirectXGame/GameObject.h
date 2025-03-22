@@ -2,7 +2,6 @@
 
 #include <vector>
 #include <corecrt_math_defines.h>
-#include <reactphysics3d/reactphysics3d.h>
 
 #include "Quaternion.h"
 

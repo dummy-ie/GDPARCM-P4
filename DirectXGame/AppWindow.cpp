@@ -2,7 +2,6 @@
 
 #include "GameObjectManager.h"
 #include "MeshManager.h"
-#include <reactphysics3d/reactphysics3d.h>
 
 #include "ActionHistory.h"
 #include "BaseComponentSystem.h"
@@ -191,7 +190,6 @@ namespace gdeng03
 		{
 			//GameObjectManager::get()->setPhysics(true);
 			GameObjectManager::get()->updateAll(EngineTime::getDeltaTime());
-			BaseComponentSystem::get()->getPhysicsSystem()->updateAllComponents();
 		}
 		else if (backend->getMode() == EngineBackend::EditorMode::EDITOR)
 		{
@@ -204,7 +202,6 @@ namespace gdeng03
 			if (backend->insideFrameStep())
 			{
 				GameObjectManager::get()->updateAll(EngineTime::getDeltaTime());
-				BaseComponentSystem::get()->getPhysicsSystem()->updateAllComponents();
 				backend->endFrameStep();
 			}
 		}

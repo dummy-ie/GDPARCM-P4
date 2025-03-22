@@ -8,11 +8,11 @@ namespace gdeng03
 
 	class BaseComponentSystem
 	{
-	public:
-		PhysicsSystem* getPhysicsSystem() const;
-
-	private:
-		PhysicsSystem* physicsSystem;
+	// public:
+	// 	PhysicsSystem* getPhysicsSystem() const;
+	//
+	// private:
+	// 	PhysicsSystem* physicsSystem;
 
 		// Singleton
 	public:

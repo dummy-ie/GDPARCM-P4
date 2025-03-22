@@ -143,9 +143,9 @@ namespace gdeng03
 		this->uiMap[inspectorScreen->getName()] = inspectorScreen;
 		this->uiList.push_back(inspectorScreen);
 
-		const std::shared_ptr<PlaybackScreen> playbackScreen = std::make_shared<PlaybackScreen>();
-		this->uiMap[playbackScreen->getName()] = playbackScreen;
-		this->uiList.push_back(playbackScreen);
+		// const std::shared_ptr<PlaybackScreen> playbackScreen = std::make_shared<PlaybackScreen>();
+		// this->uiMap[playbackScreen->getName()] = playbackScreen;
+		// this->uiList.push_back(playbackScreen);
 
 		const std::shared_ptr<DebugScreen> debugScreen = std::make_shared<DebugScreen>();
 		this->uiMap[debugScreen->getName()] = debugScreen;

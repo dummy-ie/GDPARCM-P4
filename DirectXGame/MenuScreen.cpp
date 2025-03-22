@@ -213,9 +213,9 @@ void MenuScreen::onCreateSphereClicked()
 	//sphere->setLocalScale({ 10, 0.1, 10 });
 
 	sphere->attachComponent(new Renderer3D(sphere.get(), sphereMesh));
-	PhysicsComponent* staticPhysics = new PhysicsComponent(sphere.get(), PrimitiveType::SPHERE);
-	staticPhysics->getRigidBody()->setType(reactphysics3d::BodyType::STATIC);
-	sphere->attachComponent(staticPhysics);
+	// PhysicsComponent* staticPhysics = new PhysicsComponent(sphere.get(), PrimitiveType::SPHERE);
+	// staticPhysics->getRigidBody()->setType(reactphysics3d::BodyType::STATIC);
+	// sphere->attachComponent(staticPhysics);
 	GameObjectManager::get()->addObject(sphere);
 	LogUtils::log("Created Sphere");
 }
@@ -230,9 +230,9 @@ void MenuScreen::onCreateCapsuleClicked()
 	// capsule->setLocalScale({ 10, 0.1, 10 });
 
 	capsule->attachComponent(new Renderer3D(capsule.get(), capsuleMesh));
-	PhysicsComponent* staticPhysics = new PhysicsComponent(capsule.get(), PrimitiveType::CAPSULE);
-	staticPhysics->getRigidBody()->setType(reactphysics3d::BodyType::STATIC);
-	capsule->attachComponent(staticPhysics);
+	// PhysicsComponent* staticPhysics = new PhysicsComponent(capsule.get(), PrimitiveType::CAPSULE);
+	// staticPhysics->getRigidBody()->setType(reactphysics3d::BodyType::STATIC);
+	// capsule->attachComponent(staticPhysics);
 	GameObjectManager::get()->addObject(capsule);
 	LogUtils::log("Created Capsule");
 }
@@ -249,9 +249,9 @@ void MenuScreen::onCreatePlaneClicked()
 	plane->setLocalScale({ 2.f, 1.0f, 2.f });
 
 	plane->attachComponent(new Renderer3D(plane.get(), planeMesh));
-	PhysicsComponent* staticPhysics = new PhysicsComponent(plane.get(), PrimitiveType::PLANE);
-	staticPhysics->getRigidBody()->setType(reactphysics3d::BodyType::KINEMATIC);
-	plane->attachComponent(staticPhysics);
+	// PhysicsComponent* staticPhysics = new PhysicsComponent(plane.get(), PrimitiveType::PLANE);
+	// staticPhysics->getRigidBody()->setType(reactphysics3d::BodyType::KINEMATIC);
+	// plane->attachComponent(staticPhysics);
 	GameObjectManager::get()->addObject(plane);
 
 	LogUtils::log("Created Plane");
@@ -259,24 +259,24 @@ void MenuScreen::onCreatePlaneClicked()
 
 void MenuScreen::onCreatePhysicsDemoClicked()
 {
-	int maxCubes = 100;
-	for (int i = 0; i < maxCubes; ++i)
-	{
-		GameObjectPtr cube = std::make_shared<GameObject>("Cube" + std::to_string(i));
-		//MeshPtr cubeMesh = std::make_shared<Mesh>(L"assets/models/cube.obj");
-		//MeshPtr cubeMesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(L"assets/models/cube.obj");
-		MeshPtr cubeMesh = GraphicsEngine::get()->getMeshManager()->createMeshFromPrimitiveType(PrimitiveType::CUBE);
-		MaterialPtr mat = std::make_shared<Material>(ShaderLibrary::get()->getPixelShader(L"PixelShader.hlsl"));
-		mat->setAlbedo(GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"assets/images/waffle.jpg"));
-		//cube->setLocalScale(0.1f);
-		cube->setLocalPosition({ randomRangeFloat(-8, 8), randomRangeFloat(1, 20), randomRangeFloat(-8, 8) });
-		cube->setLocalRotation(randomRangeVector3D(0, 360) * (M_PI / 180.f));
-
-		cube->attachComponent(new Renderer3D(cube.get(), cubeMesh, mat));
-		PhysicsComponent* cubePhysics = new PhysicsComponent(cube.get(), PrimitiveType::CUBE);
-		cube->attachComponent(cubePhysics);
-		GameObjectManager::get()->addObject(cube);
-	}
+	// int maxCubes = 100;
+	// for (int i = 0; i < maxCubes; ++i)
+	// {
+	// 	GameObjectPtr cube = std::make_shared<GameObject>("Cube" + std::to_string(i));
+	// 	//MeshPtr cubeMesh = std::make_shared<Mesh>(L"assets/models/cube.obj");
+	// 	//MeshPtr cubeMesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(L"assets/models/cube.obj");
+	// 	MeshPtr cubeMesh = GraphicsEngine::get()->getMeshManager()->createMeshFromPrimitiveType(PrimitiveType::CUBE);
+	// 	MaterialPtr mat = std::make_shared<Material>(ShaderLibrary::get()->getPixelShader(L"PixelShader.hlsl"));
+	// 	mat->setAlbedo(GraphicsEngine::get()->getTextureManager()->createTextureFromFile(L"assets/images/waffle.jpg"));
+	// 	//cube->setLocalScale(0.1f);
+	// 	cube->setLocalPosition({ randomRangeFloat(-8, 8), randomRangeFloat(1, 20), randomRangeFloat(-8, 8) });
+	// 	cube->setLocalRotation(randomRangeVector3D(0, 360) * (M_PI / 180.f));
+	//
+	// 	cube->attachComponent(new Renderer3D(cube.get(), cubeMesh, mat));
+	// 	PhysicsComponent* cubePhysics = new PhysicsComponent(cube.get(), PrimitiveType::CUBE);
+	// 	cube->attachComponent(cubePhysics);
+	// 	GameObjectManager::get()->addObject(cube);
+	// }
 
 	// GameObjectPtr plane1 = std::make_shared<GameObject>("Plane1");
 	// //MeshPtr planeMesh = std::make_shared<Mesh>(L"assets/models/cube.obj");
@@ -329,7 +329,7 @@ void MenuScreen::onCreatePhysicsDemoClicked()
 	// plane4->attachComponent(staticPhysics4);
 	// GameObjectManager::get()->addObject(plane4);
 
-	LogUtils::log("Created " + std::to_string(maxCubes) + " Physics Cubes");
+	// LogUtils::log("Created " + std::to_string(maxCubes) + " Physics Cubes");
 }
 
 void MenuScreen::onLoadObjClicked()

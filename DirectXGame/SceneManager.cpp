@@ -86,12 +86,6 @@ namespace gdeng03
 				rotation = rotation * (M_PI / 180.f);
 				savedObject->setLocalRotation(rotation);
 				savedObject->setLocalScale(scale);
-				PhysicsComponent* physics = new PhysicsComponent(savedObject.get(), objectType);
-				
-				if (!hasPhysicsEnabled) {
-					physics->getRigidBody()->setType(BodyType::STATIC);
-				}
-				savedObject->attachComponent(physics);
 
 				// if (hasPhysicsEnabled)
 				// {
@@ -135,9 +129,9 @@ namespace gdeng03
 			rotation = rotation * (180 / M_PI);
 
 			GameObject::ComponentList rendererList = allObjects[i]->getComponentsOfType(ComponentType::RENDERER);
-			GameObject::ComponentList physicsList = allObjects[i]->getComponentsOfType(ComponentType::PHYSICS);
+			//GameObject::ComponentList physicsList = allObjects[i]->getComponentsOfType(ComponentType::PHYSICS);
 			const Renderer3D* renderer = nullptr;
-			bool hasPhysicsSystem = false;
+			//bool hasPhysicsSystem = false;
 
 			// Retrieve the first renderer component
 			for (const auto component : rendererList) {
@@ -150,29 +144,29 @@ namespace gdeng03
 			PrimitiveType type = renderer->getMesh()->getType();
 
 
-			if (!physicsList.empty()) {
-				const PhysicsComponent* physics = nullptr;
-				// Retrieve the first renderer component
-				for (const auto component : physicsList) {
-					physics = dynamic_cast<PhysicsComponent*>(component);
-					if (physics != nullptr) {
-						break; // Exit loop once the first valid physics component is found
-					}
-				}
-
-				hasPhysicsSystem = physics->getBodyType() == BodyType::DYNAMIC;
-			}
-
-			else {
-				hasPhysicsSystem = false;
-			}
+			// if (!physicsList.empty()) {
+			// 	const PhysicsComponent* physics = nullptr;
+			// 	// Retrieve the first renderer component
+			// 	for (const auto component : physicsList) {
+			// 		physics = dynamic_cast<PhysicsComponent*>(component);
+			// 		if (physics != nullptr) {
+			// 			break; // Exit loop once the first valid physics component is found
+			// 		}
+			// 	}
+			//
+			// 	hasPhysicsSystem = physics->getBodyType() == BodyType::DYNAMIC;
+			// }
+			//
+			// else {
+			// 	hasPhysicsSystem = false;
+			// }
 
 
 			sceneFile << "Type: " << (int)type << std::endl;
 			sceneFile << "Position: " << position.x << " " << position.y << " " << position.z << std::endl;
 			sceneFile << "Rotation: " << rotation.x << " " << rotation.y << " " << rotation.z << std::endl;
 			sceneFile << "Scale: " << scale.x << " " << scale.y << " " << scale.z << std::endl;
-			sceneFile << "Physics Enabled: " << (int)hasPhysicsSystem << std::endl;
+			//sceneFile << "Physics Enabled: " << (int)hasPhysicsSystem << std::endl;
 
 		}
 
