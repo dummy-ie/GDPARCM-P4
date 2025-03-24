@@ -75,7 +75,8 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)libraries\imgui;$(ProjectDir)libraries\tinyobjloader;$(ProjectDir)libraries\reactphysics3d;$(ProjectDir)libraries;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)libraries\imgui;$(ProjectDir)libraries\tinyobjloader;$(ProjectDir)libraries\reactphysics3d;$(ProjectDir)libraries;C:\Users\marcu\Documents\C++\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\marcu\Documents\C++\vcpkg\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -136,7 +137,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3dcompiler.lib;d3d11.lib;"$(SolutionDir)\DirectXGame\libraries\reactphysics3d\lib\reactphysics3d.lib";%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3dcompiler.lib;d3d11.lib;abseil_dll.lib;absl_decode_rust_punycode.lib;absl_demangle_rust.lib;absl_flags_commandlineflag.lib;absl_flags_commandlineflag_internal.lib;absl_flags_config.lib;absl_flags_internal.lib;absl_flags_marshalling.lib;absl_flags_parse.lib;absl_flags_private_handle_accessor.lib;absl_flags_program_name.lib;absl_flags_reflection.lib;absl_flags_usage.lib;absl_flags_usage_internal.lib;absl_log_flags.lib;absl_poison.lib;absl_utf8_for_code_point.lib;address_sorting.lib;cares.lib;glfw3dll.lib;gpr.lib;grpc.lib;grpc_authorization_provider.lib;grpc_plugin_support.lib;grpc_unsecure.lib;grpc++.lib;grpc++_alts.lib;grpc++_error_details.lib;grpc++_reflection.lib;grpc++_unsecure.lib;grpcpp_channelz.lib;imgui.lib;libcrypto.lib;libprotobuf.lib;libprotobuf-lite.lib;libprotoc.lib;libssl.lib;re2.lib;upb_base_lib.lib;upb_json_lib.lib;upb_mem_lib.lib;upb_message_lib.lib;upb_mini_descriptor_lib.lib;upb_textformat_lib.lib;upb_wire_lib.lib;utf8_range.lib;utf8_validity.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -172,6 +173,8 @@
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="InspectorScreen.cpp" />
+    <ClCompile Include="libraries\grpc_protobuf\test.grpc.pb.cc" />
+    <ClCompile Include="libraries\grpc_protobuf\test.pb.cc" />
     <ClCompile Include="libraries\imgui\backends\imgui_impl_dx11.cpp" />
     <ClCompile Include="libraries\imgui\backends\imgui_impl_win32.cpp" />
     <ClCompile Include="libraries\imgui\imgui.cpp" />
@@ -252,6 +255,8 @@
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="HierarchyScreen.h" />
     <ClInclude Include="InspectorScreen.h" />
+    <ClInclude Include="libraries\grpc_protobuf\test.grpc.pb.h" />
+    <ClInclude Include="libraries\grpc_protobuf\test.pb.h" />
     <ClInclude Include="libraries\imgui\backends\imgui_impl_dx11.h" />
     <ClInclude Include="libraries\imgui\backends\imgui_impl_win32.h" />
     <ClInclude Include="libraries\imgui\imconfig.h" />
@@ -331,6 +336,8 @@
   <ItemGroup>
     <None Include="..\README.md" />
     <None Include="..\todo.md" />
+    <None Include="libraries\grpc &amp; protobuf\proto_compile.sh" />
+    <None Include="libraries\grpc &amp; protobuf\test.proto" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

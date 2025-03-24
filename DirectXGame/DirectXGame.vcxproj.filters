@@ -127,6 +127,9 @@
     <Filter Include="GameEngine\Scenes">
       <UniqueIdentifier>{afeddee8-fc28-444f-b5d6-dad7f1e1e009}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libraries\grpc/protobuf">
+      <UniqueIdentifier>{3032a45c-288b-464c-b454-e7d7e0ae99fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -329,6 +332,12 @@
     </ClCompile>
     <ClCompile Include="FileUtils.cpp">
       <Filter>GameEngine\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\grpc_protobuf\test.grpc.pb.cc">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\grpc_protobuf\test.pb.cc">
+      <Filter>Libraries\grpc/protobuf</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -587,11 +596,23 @@
     <ClInclude Include="FileUtils.h">
       <Filter>GameEngine\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="libraries\grpc_protobuf\test.grpc.pb.h">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\grpc_protobuf\test.pb.h">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
     <None Include="..\todo.md" />
     <None Include="packages.config" />
+    <None Include="libraries\grpc &amp; protobuf\proto_compile.sh">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </None>
+    <None Include="libraries\grpc &amp; protobuf\test.proto">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="GeometryShader.hlsl">

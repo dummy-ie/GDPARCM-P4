@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+service SceneLoader 
+{
+	rpc GetModel (ModelRequest) returns (ModelReply) {}
+	rpc GetScene (SceneRequest) returns (SceneReply) {}
+}
+
+message ModelRequest
+{
+  string modelName = 1;
+}
+
+message ModelReply
+{
+  // string or bytes for obj file?
+  string objFile = 1;
+  int32 texWidth = 2;
+  int32 texHeight = 3;
+  bytes texture = 4;
+}
+
+message SceneRequest
+{
+  string sceneName = 1;
+}
+
+message SceneReply
+{
+  string sceneFile = 1;
+}
