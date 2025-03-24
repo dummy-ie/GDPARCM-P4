@@ -8,7 +8,7 @@ GRPC_CPP_EXE="C:/Users/marcu/Documents/C++/vcpkg/installed/x64-windows/tools/grp
 #where your .proto files are
 SRC_DIR="C:/Users/marcu/Documents/C++/GDPARCM-P4/DirectXGame/libraries/grpc_protobuf"
 DST_DIR="C:/Users/marcu/Documents/C++/GDPARCM-P4/DirectXGame/libraries/grpc_protobuf"
-PROTO_FILE="test.proto"
+PROTO_FILE="modelLoader.proto"
 
 echo "Src Directory: $SRC_DIR"
 echo "Dst Directory: $DST_DIR"

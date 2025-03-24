@@ -333,10 +333,16 @@
     <ClCompile Include="FileUtils.cpp">
       <Filter>GameEngine\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="libraries\grpc_protobuf\test.grpc.pb.cc">
+    <ClCompile Include="libraries\grpc_protobuf\sceneLoader.grpc.pb.cc">
       <Filter>Libraries\grpc/protobuf</Filter>
     </ClCompile>
-    <ClCompile Include="libraries\grpc_protobuf\test.pb.cc">
+    <ClCompile Include="libraries\grpc_protobuf\sceneLoader.pb.cc">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\grpc_protobuf\modelLoader.grpc.pb.cc">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="libraries\grpc_protobuf\modelLoader.pb.cc">
       <Filter>Libraries\grpc/protobuf</Filter>
     </ClCompile>
   </ItemGroup>
@@ -596,10 +602,16 @@
     <ClInclude Include="FileUtils.h">
       <Filter>GameEngine\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="libraries\grpc_protobuf\test.grpc.pb.h">
+    <ClInclude Include="libraries\grpc_protobuf\sceneLoader.grpc.pb.h">
       <Filter>Libraries\grpc/protobuf</Filter>
     </ClInclude>
-    <ClInclude Include="libraries\grpc_protobuf\test.pb.h">
+    <ClInclude Include="libraries\grpc_protobuf\sceneLoader.pb.h">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\grpc_protobuf\modelLoader.grpc.pb.h">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\grpc_protobuf\modelLoader.pb.h">
       <Filter>Libraries\grpc/protobuf</Filter>
     </ClInclude>
   </ItemGroup>
@@ -610,7 +622,10 @@
     <None Include="libraries\grpc &amp; protobuf\proto_compile.sh">
       <Filter>Libraries\grpc/protobuf</Filter>
     </None>
-    <None Include="libraries\grpc &amp; protobuf\test.proto">
+    <None Include="libraries\grpc_protobuf\modelLoader.proto">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </None>
+    <None Include="libraries\grpc_protobuf\sceneLoader.proto">
       <Filter>Libraries\grpc/protobuf</Filter>
     </None>
   </ItemGroup>

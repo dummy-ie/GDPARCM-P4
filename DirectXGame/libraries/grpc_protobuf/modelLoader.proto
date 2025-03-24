@@ -1,9 +1,8 @@
 syntax = "proto3";
 
-service SceneLoader 
+service ModelLoader 
 {
 	rpc GetModel (ModelRequest) returns (ModelReply) {}
-	rpc GetScene (SceneRequest) returns (SceneReply) {}
 }
 
 message ModelRequest
@@ -18,14 +17,4 @@ message ModelReply
   int32 texWidth = 2;
   int32 texHeight = 3;
   bytes texture = 4;
-}
-
-message SceneRequest
-{
-  string sceneName = 1;
-}
-
-message SceneReply
-{
-  string sceneFile = 1;
 }

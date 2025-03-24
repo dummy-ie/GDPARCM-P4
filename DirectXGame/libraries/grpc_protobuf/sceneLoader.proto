@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service SceneLoader 
+{
+	rpc GetScene (SceneRequest) returns (SceneReply) {}
+}
+
+message SceneRequest
+{
+  string sceneName = 1;
+}
+
+message SceneReply
+{
+  string sceneFile = 1;
+}

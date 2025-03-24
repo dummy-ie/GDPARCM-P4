@@ -75,8 +75,8 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)libraries\imgui;$(ProjectDir)libraries\tinyobjloader;$(ProjectDir)libraries\reactphysics3d;$(ProjectDir)libraries;C:\Users\marcu\Documents\C++\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\marcu\Documents\C++\vcpkg\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)libraries\imgui;$(ProjectDir)libraries\tinyobjloader;$(ProjectDir)libraries;$(VCPKG_ROOT)\installed\x64-windows\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCPKG_ROOT)\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -173,8 +173,10 @@
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="InspectorScreen.cpp" />
-    <ClCompile Include="libraries\grpc_protobuf\test.grpc.pb.cc" />
-    <ClCompile Include="libraries\grpc_protobuf\test.pb.cc" />
+    <ClCompile Include="libraries\grpc_protobuf\modelLoader.grpc.pb.cc" />
+    <ClCompile Include="libraries\grpc_protobuf\modelLoader.pb.cc" />
+    <ClCompile Include="libraries\grpc_protobuf\sceneLoader.grpc.pb.cc" />
+    <ClCompile Include="libraries\grpc_protobuf\sceneLoader.pb.cc" />
     <ClCompile Include="libraries\imgui\backends\imgui_impl_dx11.cpp" />
     <ClCompile Include="libraries\imgui\backends\imgui_impl_win32.cpp" />
     <ClCompile Include="libraries\imgui\imgui.cpp" />
@@ -255,8 +257,10 @@
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="HierarchyScreen.h" />
     <ClInclude Include="InspectorScreen.h" />
-    <ClInclude Include="libraries\grpc_protobuf\test.grpc.pb.h" />
-    <ClInclude Include="libraries\grpc_protobuf\test.pb.h" />
+    <ClInclude Include="libraries\grpc_protobuf\modelLoader.grpc.pb.h" />
+    <ClInclude Include="libraries\grpc_protobuf\modelLoader.pb.h" />
+    <ClInclude Include="libraries\grpc_protobuf\sceneLoader.grpc.pb.h" />
+    <ClInclude Include="libraries\grpc_protobuf\sceneLoader.pb.h" />
     <ClInclude Include="libraries\imgui\backends\imgui_impl_dx11.h" />
     <ClInclude Include="libraries\imgui\backends\imgui_impl_win32.h" />
     <ClInclude Include="libraries\imgui\imconfig.h" />
@@ -337,7 +341,8 @@
     <None Include="..\README.md" />
     <None Include="..\todo.md" />
     <None Include="libraries\grpc &amp; protobuf\proto_compile.sh" />
-    <None Include="libraries\grpc &amp; protobuf\test.proto" />
+    <None Include="libraries\grpc_protobuf\modelLoader.proto" />
+    <None Include="libraries\grpc_protobuf\sceneLoader.proto" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
