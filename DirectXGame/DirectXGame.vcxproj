@@ -340,8 +340,8 @@
   <ItemGroup>
     <None Include="..\README.md" />
     <None Include="..\todo.md" />
-    <None Include="libraries\grpc &amp; protobuf\proto_compile.sh" />
     <None Include="libraries\grpc_protobuf\modelLoader.proto" />
+    <None Include="libraries\grpc_protobuf\proto_compile.sh" />
     <None Include="libraries\grpc_protobuf\sceneLoader.proto" />
     <None Include="packages.config" />
   </ItemGroup>

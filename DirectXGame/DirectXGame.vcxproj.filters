@@ -619,13 +619,13 @@
     <None Include="..\README.md" />
     <None Include="..\todo.md" />
     <None Include="packages.config" />
-    <None Include="libraries\grpc &amp; protobuf\proto_compile.sh">
-      <Filter>Libraries\grpc/protobuf</Filter>
-    </None>
     <None Include="libraries\grpc_protobuf\modelLoader.proto">
       <Filter>Libraries\grpc/protobuf</Filter>
     </None>
     <None Include="libraries\grpc_protobuf\sceneLoader.proto">
+      <Filter>Libraries\grpc/protobuf</Filter>
+    </None>
+    <None Include="libraries\grpc_protobuf\proto_compile.sh">
       <Filter>Libraries\grpc/protobuf</Filter>
     </None>
   </ItemGroup>
