@@ -126,38 +126,34 @@ namespace gdeng03
 		ImGui_ImplWin32_Init(windowHandle);
 		ImGui_ImplDX11_Init(GraphicsEngine::get()->getRenderSystem()->getDevice(), GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->deviceContext);
 
-		const std::shared_ptr<MenuScreen> menuScreen = std::make_shared<MenuScreen>();
-		this->uiMap[menuScreen->getName()] = menuScreen;
-		this->uiList.push_back(menuScreen);
-
-		const std::shared_ptr<MaterialEditor> materialEditor = std::make_shared<MaterialEditor>();
-		this->uiMap[materialEditor->getName()] = materialEditor;
-		//menuScreen->setMaterialEditor(materialEditor->getMaterialEditorOpen());
-		this->uiList.push_back(materialEditor);
-
-		const std::shared_ptr<HierarchyScreen> hierarchyScreen = std::make_shared<HierarchyScreen>();
-		this->uiMap[hierarchyScreen->getName()] = hierarchyScreen;
-		this->uiList.push_back(hierarchyScreen);
-
-		const std::shared_ptr<InspectorScreen> inspectorScreen = std::make_shared<InspectorScreen>();
-		this->uiMap[inspectorScreen->getName()] = inspectorScreen;
-		this->uiList.push_back(inspectorScreen);
-
-		// const std::shared_ptr<PlaybackScreen> playbackScreen = std::make_shared<PlaybackScreen>();
-		// this->uiMap[playbackScreen->getName()] = playbackScreen;
-		// this->uiList.push_back(playbackScreen);
-
-		const std::shared_ptr<DebugScreen> debugScreen = std::make_shared<DebugScreen>();
-		this->uiMap[debugScreen->getName()] = debugScreen;
-		this->uiList.push_back(debugScreen);
-
-		const std::shared_ptr<ProfilerScreen> profilerScreen = std::make_shared<ProfilerScreen>();
-		this->uiMap[profilerScreen->getName()] = profilerScreen;
-		this->uiList.push_back(profilerScreen);
-
-		const std::shared_ptr<ToolsScreen> toolsScreen = std::make_shared<ToolsScreen>();
-		this->uiMap[toolsScreen->getName()] = toolsScreen;
-		this->uiList.push_back(toolsScreen);
+		// const std::shared_ptr<MenuScreen> menuScreen = std::make_shared<MenuScreen>();
+		// this->uiMap[menuScreen->getName()] = menuScreen;
+		// this->uiList.push_back(menuScreen);
+		//
+		// const std::shared_ptr<MaterialEditor> materialEditor = std::make_shared<MaterialEditor>();
+		// this->uiMap[materialEditor->getName()] = materialEditor;
+		// //menuScreen->setMaterialEditor(materialEditor->getMaterialEditorOpen());
+		// this->uiList.push_back(materialEditor);
+		//
+		// const std::shared_ptr<HierarchyScreen> hierarchyScreen = std::make_shared<HierarchyScreen>();
+		// this->uiMap[hierarchyScreen->getName()] = hierarchyScreen;
+		// this->uiList.push_back(hierarchyScreen);
+		//
+		// const std::shared_ptr<InspectorScreen> inspectorScreen = std::make_shared<InspectorScreen>();
+		// this->uiMap[inspectorScreen->getName()] = inspectorScreen;
+		// this->uiList.push_back(inspectorScreen);
+		//
+		// const std::shared_ptr<DebugScreen> debugScreen = std::make_shared<DebugScreen>();
+		// this->uiMap[debugScreen->getName()] = debugScreen;
+		// this->uiList.push_back(debugScreen);
+		//
+		// const std::shared_ptr<ProfilerScreen> profilerScreen = std::make_shared<ProfilerScreen>();
+		// this->uiMap[profilerScreen->getName()] = profilerScreen;
+		// this->uiList.push_back(profilerScreen);
+		//
+		// const std::shared_ptr<ToolsScreen> toolsScreen = std::make_shared<ToolsScreen>();
+		// this->uiMap[toolsScreen->getName()] = toolsScreen;
+		// this->uiList.push_back(toolsScreen);
 
 		ViewportManager::get()->createViewport();
 

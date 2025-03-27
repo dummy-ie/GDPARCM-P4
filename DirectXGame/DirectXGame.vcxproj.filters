@@ -130,6 +130,9 @@
     <Filter Include="Libraries\grpc/protobuf">
       <UniqueIdentifier>{3032a45c-288b-464c-b454-e7d7e0ae99fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Networking">
+      <UniqueIdentifier>{8fbd4b13-a4d0-4dd8-aa8e-6697fe68415f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
