@@ -71,7 +71,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCPKG_ROOT)\installed\x64-windows\include</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCPKG_ROOT)\installed\x64-windows\include;$(SolutionDir)\DirectXGame\libraries\grpc_protobuf</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(VCPKG_ROOT)\installed\x64-windows\lib</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -136,13 +136,15 @@
     <ClCompile Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.pb.cc" />
     <ClCompile Include="..\DirectXGame\libraries\grpc_protobuf\sceneLoader.grpc.pb.cc" />
     <ClCompile Include="..\DirectXGame\libraries\grpc_protobuf\sceneLoader.pb.cc" />
-    <ClCompile Include="P4Server.cpp" />
+    <ClCompile Include="mainServer.cpp" />
+    <ClCompile Include="ModelServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.grpc.pb.h" />
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.pb.h" />
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\sceneLoader.grpc.pb.h" />
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\sceneLoader.pb.h" />
+    <ClInclude Include="ModelServer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.proto" />

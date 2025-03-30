@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="P4Server.cpp">
+    <ClCompile Include="mainServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.grpc.pb.cc">
@@ -30,6 +30,9 @@
     <ClCompile Include="..\DirectXGame\libraries\grpc_protobuf\sceneLoader.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ModelServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.grpc.pb.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\sceneLoader.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
