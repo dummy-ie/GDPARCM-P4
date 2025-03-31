@@ -25,7 +25,7 @@ void FileUtils::getFilePath(std::string& meshFilePath, std::string& fileName)
     if (GetOpenFileName(&openFile)) {
         std::wstring ws(path);
         std::string str(ws.begin(), ws.end());
-        std::replace(str.begin(), str.end(), '\\', '/');
+        std::ranges::replace(str, '\\', '/');
         fileName = std::experimental::filesystem::path(str).stem().generic_string();
         meshFilePath = str;
     }

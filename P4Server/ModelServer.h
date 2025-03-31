@@ -2,13 +2,13 @@
 #include <cstdint>
 #include "modelLoader.pb.h"
 #include "modelLoader.grpc.pb.h"
-#include "IETThread.h"
 
-class ModelServer final : public ModelLoader::Service, public IETThread  {
+class ModelServer final : public ModelLoader::Service  {
 public:
-	grpc::Status sendModel(grpc::ServerContext* context, const ModelRequest* request, ModelReply* response) override;
+	grpc::Status GetModel(grpc::ServerContext* context, const ModelRequest* request, grpc::ServerWriter<ModelReply>* writer) override;
 	static void runServer(uint16_t port);
 
-	void run() override;
+private:
+	std::filesystem::path assetsPath = std::filesystem::path("../../P4Server/assets/");
 };
 

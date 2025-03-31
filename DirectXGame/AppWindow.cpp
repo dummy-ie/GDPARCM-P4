@@ -7,6 +7,7 @@
 #include "BaseComponentSystem.h"
 #include "EngineBackend.h"
 #include "FileUtils.h"
+#include "ModelClient.h"
 #include "PhysicsSystem.h"
 #include "Renderer3D.h"
 #include "ShaderLibrary.h"
@@ -102,6 +103,9 @@ namespace gdeng03
 
 		this->solidState = renderSystem->createRasterizerState(D3D11_FILL_SOLID, D3D11_CULL_BACK);
 
+		std::mutex* coutMutex = new std::mutex();
+		ModelClient* client = new ModelClient("localhost:50051", "dragon", coutMutex);
+		client->run();
 		// mainMaterial = std::make_shared<Material>(L"PixelShader.hlsl");
 		// //mainMaterial->samplerState = GraphicsEngine::get()->getRenderSystem()->createSamplerState();
 		// UIManager::get()->mainMaterial = mainMaterial;
@@ -131,7 +135,7 @@ namespace gdeng03
 		// cube2->attachChild(cube3);
 	}
 
-	void AppWindow::draw(int width, int height, EFillMode fillMode)
+	void AppWindow::draw(const int width, const int height, const EFillMode fillMode) const
 	{
 		const DeviceContextPtr context = GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext();
 

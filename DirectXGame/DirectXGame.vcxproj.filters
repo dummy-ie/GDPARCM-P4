@@ -133,6 +133,9 @@
     <Filter Include="Networking">
       <UniqueIdentifier>{8fbd4b13-a4d0-4dd8-aa8e-6697fe68415f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Threading">
+      <UniqueIdentifier>{bf024394-44b5-492a-be9d-12a593db1bca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -347,6 +350,12 @@
     </ClCompile>
     <ClCompile Include="libraries\grpc_protobuf\modelLoader.pb.cc">
       <Filter>Libraries\grpc/protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelClient.cpp">
+      <Filter>Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="IETThread.cpp">
+      <Filter>Threading</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -616,6 +625,12 @@
     </ClInclude>
     <ClInclude Include="libraries\grpc_protobuf\modelLoader.pb.h">
       <Filter>Libraries\grpc/protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelClient.h">
+      <Filter>Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="IETThread.h">
+      <Filter>Threading</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

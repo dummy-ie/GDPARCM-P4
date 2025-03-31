@@ -79,14 +79,16 @@ namespace gdeng03
 			throw std::exception(message.data());
 		}
 
-		static void error(const std::string& msg)
+		static void error(const std::string& msg, const bool throwExcept = false)
 		{
 			if constexpr (!ERROR_LOGS)
 				return;
 
 			std::string message = "[ERROR]: " + msg + '\n';
 			std::cout << message;
-			throw std::exception(message.data());
+
+			if (throwExcept)
+				throw std::exception(message.data());
 		}
 
 	private:

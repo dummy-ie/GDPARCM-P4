@@ -2,7 +2,8 @@ syntax = "proto3";
 
 service ModelLoader 
 {
-	rpc GetModel (ModelRequest) returns (ModelReply) {}
+	// Server streaming RPC, as the models have many vertices = many data
+	rpc GetModel (ModelRequest) returns (stream ModelReply) {}
 }
 
 message ModelRequest
@@ -13,7 +14,7 @@ message ModelRequest
 message ModelReply
 {
   // string or bytes for obj file?
-  string objFile = 1;
+  bytes objFile = 1;
   int32 texWidth = 2;
   int32 texHeight = 3;
   bytes texture = 4;

@@ -417,7 +417,7 @@ class ModelReply final
     kTexWidthFieldNumber = 2,
     kTexHeightFieldNumber = 3,
   };
-  // string objFile = 1;
+  // bytes objFile = 1;
   void clear_objfile() ;
   const std::string& objfile() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -475,7 +475,7 @@ class ModelReply final
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       2, 4, 0,
-      26, 2>
+      0, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -571,7 +571,7 @@ inline void ModelRequest::set_allocated_modelname(std::string* value) {
 
 // ModelReply
 
-// string objFile = 1;
+// bytes objFile = 1;
 inline void ModelReply::clear_objfile() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.objfile_.ClearToEmpty();
@@ -585,7 +585,7 @@ template <typename Arg_, typename... Args_>
 inline PROTOBUF_ALWAYS_INLINE void ModelReply::set_objfile(Arg_&& arg,
                                                      Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.objfile_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  _impl_.objfile_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:ModelReply.objFile)
 }
 inline std::string* ModelReply::mutable_objfile() ABSL_ATTRIBUTE_LIFETIME_BOUND {

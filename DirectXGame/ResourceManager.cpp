@@ -25,7 +25,7 @@ namespace gdeng03
 			return it->second;
 
 		std::string str(fullPath.begin(), fullPath.end());
-		std::cout << "what " << str;
+		//std::cout << "what " << str << "\n";
 		if (Resource* raw = this->createResourceFromFileConcrete(fullPath.c_str()))
 		{
 			ResourcePtr res(raw);

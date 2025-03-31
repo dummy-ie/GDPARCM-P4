@@ -1,6 +1,8 @@
 #include "GameObjectManager.h"
 
 #include "EditorAction.h"
+#include "MeshManager.h"
+#include "Renderer3D.h"
 
 namespace gdeng03
 {
@@ -63,6 +65,15 @@ namespace gdeng03
 
 		
 		gameObjectList.push_back(gameObject);
+	}
+
+	void GameObjectManager::createObject(const std::filesystem::path& modelPath, const std::string& objectName = "Model")
+	{
+		const GameObjectPtr mesh = std::make_shared<GameObject>(objectName + " Mesh");
+
+		const MeshPtr customMesh = GraphicsEngine::get()->getMeshManager()->createMeshFromFile(modelPath.c_str());
+		mesh->attachComponent(new Renderer3D(mesh.get(), customMesh));
+		addObject(mesh);
 	}
 
 	void GameObjectManager::createObject(const PrimitiveType type, void* shaderByteCode, size_t sizeShader)

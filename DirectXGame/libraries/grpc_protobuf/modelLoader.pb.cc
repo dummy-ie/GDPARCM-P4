@@ -126,16 +126,16 @@ const char descriptor_table_protodef_modelLoader_2eproto[] ABSL_ATTRIBUTE_SECTIO
     protodesc_cold) = {
     "\n\021modelLoader.proto\"!\n\014ModelRequest\022\021\n\tm"
     "odelName\030\001 \001(\t\"S\n\nModelReply\022\017\n\007objFile\030"
-    "\001 \001(\t\022\020\n\010texWidth\030\002 \001(\005\022\021\n\ttexHeight\030\003 \001"
-    "(\005\022\017\n\007texture\030\004 \001(\01427\n\013ModelLoader\022(\n\010Ge"
-    "tModel\022\r.ModelRequest\032\013.ModelReply\"\000b\006pr"
-    "oto3"
+    "\001 \001(\014\022\020\n\010texWidth\030\002 \001(\005\022\021\n\ttexHeight\030\003 \001"
+    "(\005\022\017\n\007texture\030\004 \001(\01429\n\013ModelLoader\022*\n\010Ge"
+    "tModel\022\r.ModelRequest\032\013.ModelReply\"\0000\001b\006"
+    "proto3"
 };
 static ::absl::once_flag descriptor_table_modelLoader_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_modelLoader_2eproto = {
     false,
     false,
-    204,
+    206,
     descriptor_table_protodef_modelLoader_2eproto,
     "modelLoader.proto",
     &descriptor_table_modelLoader_2eproto_once,
@@ -489,7 +489,7 @@ const ::google::protobuf::internal::ClassData* ModelReply::GetClassData() const 
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 0, 26, 2> ModelReply::_table_ = {
+const ::_pbi::TcParseTable<2, 4, 0, 0, 2> ModelReply::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -510,8 +510,8 @@ const ::_pbi::TcParseTable<2, 4, 0, 26, 2> ModelReply::_table_ = {
     // bytes texture = 4;
     {::_pbi::TcParser::FastBS1,
      {34, 63, 0, PROTOBUF_FIELD_OFFSET(ModelReply, _impl_.texture_)}},
-    // string objFile = 1;
-    {::_pbi::TcParser::FastUS1,
+    // bytes objFile = 1;
+    {::_pbi::TcParser::FastBS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(ModelReply, _impl_.objfile_)}},
     // int32 texWidth = 2;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(ModelReply, _impl_.texwidth_), 63>(),
@@ -522,9 +522,9 @@ const ::_pbi::TcParseTable<2, 4, 0, 26, 2> ModelReply::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // string objFile = 1;
+    // bytes objFile = 1;
     {PROTOBUF_FIELD_OFFSET(ModelReply, _impl_.objfile_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    (0 | ::_fl::kFcSingular | ::_fl::kBytes | ::_fl::kRepAString)},
     // int32 texWidth = 2;
     {PROTOBUF_FIELD_OFFSET(ModelReply, _impl_.texwidth_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
@@ -537,9 +537,6 @@ const ::_pbi::TcParseTable<2, 4, 0, 26, 2> ModelReply::_table_ = {
   }},
   // no aux_entries
   {{
-    "\12\7\0\0\0\0\0\0"
-    "ModelReply"
-    "objFile"
   }},
 };
 
@@ -573,12 +570,10 @@ PROTOBUF_NOINLINE void ModelReply::Clear() {
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // string objFile = 1;
+          // bytes objFile = 1;
           if (!this_._internal_objfile().empty()) {
             const std::string& _s = this_._internal_objfile();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "ModelReply.objFile");
-            target = stream->WriteStringMaybeAliased(1, _s, target);
+            target = stream->WriteBytesMaybeAliased(1, _s, target);
           }
 
           // int32 texWidth = 2;
@@ -626,9 +621,9 @@ PROTOBUF_NOINLINE void ModelReply::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string objFile = 1;
+            // bytes objFile = 1;
             if (!this_._internal_objfile().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
                                               this_._internal_objfile());
             }
             // bytes texture = 4;

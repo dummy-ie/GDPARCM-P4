@@ -3,7 +3,10 @@
 
 #include <iostream>
 
+#include "ModelServer.h"
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    //std::cout << "Hello World!\n";
+    ModelServer::runServer(50051);
 }

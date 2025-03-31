@@ -75,7 +75,7 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)libraries\imgui;$(ProjectDir)libraries\tinyobjloader;$(ProjectDir)libraries;$(VCPKG_ROOT)\installed\x64-windows\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)libraries\imgui;$(ProjectDir)libraries\tinyobjloader;$(ProjectDir)libraries;$(VCPKG_ROOT)\installed\x64-windows\include;$(ProjectDir)libraries\grpc_protobuf;$(IncludePath)</IncludePath>
     <LibraryPath>$(VCPKG_ROOT)\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -169,6 +169,8 @@
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="GeometryShader.cpp" />
     <ClCompile Include="GraphicsEngine.cpp" />
+    <ClCompile Include="IETThread.cpp" />
+    <ClCompile Include="ModelClient.cpp" />
     <ClCompile Include="HierarchyScreen.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="InputSystem.cpp" />
@@ -255,6 +257,8 @@
     <ClInclude Include="EngineBackend.h" />
     <ClInclude Include="FileUtils.h" />
     <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="IETThread.h" />
+    <ClInclude Include="ModelClient.h" />
     <ClInclude Include="HierarchyScreen.h" />
     <ClInclude Include="InspectorScreen.h" />
     <ClInclude Include="libraries\grpc_protobuf\modelLoader.grpc.pb.h" />
