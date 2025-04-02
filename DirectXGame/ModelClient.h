@@ -11,12 +11,14 @@ class ModelClient : public IETThread
 {
 public:
 	ModelClient(const std::string& target, const std::string& modelName, std::mutex* coutMutex);
+	~ModelClient() override;
 	void run() override;
 
 private:
 	void runClient() const;
 	std::string getModel(const std::string& model) const;
 
+private:
 	std::mutex* coutMutex;
 	std::string modelName;
 	std::unique_ptr<ModelLoader::Stub> stub_;

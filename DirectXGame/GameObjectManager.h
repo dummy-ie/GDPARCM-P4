@@ -24,7 +24,7 @@ namespace gdeng03
 		void drawAll(int width, int height) const;
 
 		void addObject(const GameObjectPtr& gameObject);
-		void createObject(const std::filesystem::path& modelPath, const std::string& objectName);
+		GameObjectPtr createObject(const std::filesystem::path& modelPath, const std::string& objectName);
 		void createObject(PrimitiveType type, void* shaderByteCode, size_t sizeShader);
 		void deleteScene();
 		void deleteObject(const GameObjectPtr& gameObject);

@@ -97,42 +97,15 @@ namespace gdeng03
 
 		InputSystem::get()->addListener(this);
 
-		// camera moved to viewportscreen
-		//CameraManager::get()->addSceneCamera(std::make_shared<SceneCamera>("Camera", false, rc));
-		//CameraManager::get()->getActiveSceneCamera()->setLocalPosition({ 0.0f, 5.0f, -20.0f });
-
 		this->solidState = renderSystem->createRasterizerState(D3D11_FILL_SOLID, D3D11_CULL_BACK);
 
 		std::mutex* coutMutex = new std::mutex();
-		ModelClient* client = new ModelClient("localhost:50051", "dragon", coutMutex);
-		client->run();
-		// mainMaterial = std::make_shared<Material>(L"PixelShader.hlsl");
-		// //mainMaterial->samplerState = GraphicsEngine::get()->getRenderSystem()->createSamplerState();
-		// UIManager::get()->mainMaterial = mainMaterial;
+		ModelClient* client0 = new ModelClient("localhost:50051", "dragon", coutMutex);
+		client0->run();
 
+		ModelClient* client1 = new ModelClient("localhost:50051", "armadillo", coutMutex);
+		client1->run();
 
-		// GameObjectPtr cube = std::make_shared<GameObject>("Cube");
-		//
-		// MeshPtr cubeMesh = GraphicsEngine::get()->getMeshManager()->createMeshFromPrimitiveType(PrimitiveType::CUBE);
-		// cube->attachComponent(new Renderer3D(cube.get(), cubeMesh));
-		// GameObjectManager::get()->addObject(cube);
-		//
-		// GameObjectPtr cube2 = std::make_shared<GameObject>("Cube2");
-		//
-		// cube2->attachComponent(new Renderer3D(cube2.get(), cubeMesh));
-		// cube2->setLocalPosition({ 0, 2, 0 });
-		//
-		// GameObjectManager::get()->addObject(cube2);
-		//
-		// GameObjectPtr cube3 = std::make_shared<GameObject>("Cube3");
-		//
-		// cube3->attachComponent(new Renderer3D(cube3.get(), cubeMesh));
-		// cube3->setLocalPosition({ 0, 4, 0 });
-		//
-		// GameObjectManager::get()->addObject(cube3);
-		//
-		// cube->attachChild(cube2);
-		// cube2->attachChild(cube3);
 	}
 
 	void AppWindow::draw(const int width, const int height, const EFillMode fillMode) const

@@ -357,6 +357,9 @@
     <ClCompile Include="IETThread.cpp">
       <Filter>Threading</Filter>
     </ClCompile>
+    <ClCompile Include="RandomUtils.cpp">
+      <Filter>GameEngine\Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWindow.h">
@@ -631,6 +634,9 @@
     </ClInclude>
     <ClInclude Include="IETThread.h">
       <Filter>Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomUtils.h">
+      <Filter>GameEngine\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

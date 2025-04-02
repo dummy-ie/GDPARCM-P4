@@ -5,6 +5,8 @@
 
 #include "GameObjectManager.h"
 #include "LogUtils.h"
+#include "MathUtil.h"
+#include "RandomUtils.h"
 
 ModelClient::ModelClient(const std::string& target, const std::string& modelName, std::mutex* coutMutex)
 {
@@ -63,6 +65,11 @@ std::string ModelClient::getModel(const std::string& model) const
 	// }
 }
 
+ModelClient::~ModelClient()
+{
+	delete this;
+}
+
 void ModelClient::runClient() const
 {
 	const std::string reply = getModel(modelName);
@@ -76,7 +83,9 @@ void ModelClient::runClient() const
 	gdeng03::LogUtils::log("Model " + modelName + " received successfully.");
 	gdeng03::LogUtils::log(this, "Loading " + reply);
 
-	gdeng03::GameObjectManager::get()->createObject(reply, modelName);
+	const auto newObj = gdeng03::GameObjectManager::get()->createObject(reply, modelName);
+	newObj->setPosition(gdeng03::randomRangeVector3D(-2, 2));
+	newObj->setRotation(gdeng03::randomRangeVector3D(0, 360));
 }
 
 void ModelClient::run()

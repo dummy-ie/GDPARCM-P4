@@ -206,6 +206,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="RandomUtils.cpp" />
     <ClCompile Include="RasterizerState.cpp" />
     <ClCompile Include="Renderer3D.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
@@ -303,6 +304,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="RandomUtils.h" />
     <ClInclude Include="RasterizerState.h" />
     <ClInclude Include="Renderer3D.h" />
     <ClInclude Include="RenderSystem.h" />
