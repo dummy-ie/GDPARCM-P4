@@ -170,6 +170,7 @@
     <ClCompile Include="GeometryShader.cpp" />
     <ClCompile Include="GraphicsEngine.cpp" />
     <ClCompile Include="IETThread.cpp" />
+    <ClCompile Include="IExecutionEvent.cpp" />
     <ClCompile Include="ModelClient.cpp" />
     <ClCompile Include="HierarchyScreen.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
@@ -260,6 +261,7 @@
     <ClInclude Include="FileUtils.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="IETThread.h" />
+    <ClInclude Include="IExecutionEvent.h" />
     <ClInclude Include="ModelClient.h" />
     <ClInclude Include="HierarchyScreen.h" />
     <ClInclude Include="InspectorScreen.h" />
