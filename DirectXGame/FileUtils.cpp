@@ -7,6 +7,8 @@
 #include <experimental/filesystem>
 #endif
 
+#include <filesystem>
+
 #include "LogUtils.h"
 
 void FileUtils::getFilePath(std::string& meshFilePath, std::string& fileName)

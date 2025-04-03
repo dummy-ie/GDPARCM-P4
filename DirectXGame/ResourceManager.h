@@ -8,6 +8,8 @@
 #include <experimental/filesystem>
 #endif
 
+#include <filesystem>
+
 #include "Prerequisites.h"
 #include "Resource.h"
 
@@ -30,7 +32,7 @@ namespace gdeng03
 	protected:
 		virtual Resource* createResourceFromFileConcrete(const wchar_t* filePath) = 0;
 
-		std::experimental::filesystem::path defaultPath;
+		std::filesystem::path defaultPath;
 
 	//private:
 		ResourceMap resourceMap;

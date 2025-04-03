@@ -1,5 +1,5 @@
 #include "TextureManager.h"
-
+#include <filesystem>
 #include "Texture.h"
 
 namespace gdeng03
@@ -27,8 +27,9 @@ namespace gdeng03
 		{
 			tex = new Texture(filePath);
 		}
-		catch (...)
+		catch (const std::exception& exc)
 		{
+			std::cerr << exc.what();
 			throw std::exception("Failed to create texture!");
 		}
 

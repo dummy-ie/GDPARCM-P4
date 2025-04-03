@@ -82,11 +82,11 @@ void ModelClient::runClient() const
 	}
 
 	gdeng03::LogUtils::log("Model " + modelName + " received successfully.");
-	gdeng03::LogUtils::log(this, "Loading " + reply);
+	gdeng03::LogUtils::log(this, "Model is stored at " + reply);
 
-	const auto newObj = gdeng03::GameObjectManager::get()->createObject(reply, modelName);
-	newObj->setPosition(gdeng03::randomRangeVector3D(-2, 2));
-	newObj->setRotation(gdeng03::randomRangeVector3D(0, 360));
+	// const auto newObj = gdeng03::GameObjectManager::get()->createObject(reply, modelName);
+	// newObj->setPosition(gdeng03::randomRangeVector3D(-2, 2));
+	// newObj->setRotation(gdeng03::randomRangeVector3D(0, 360));
 }
 
 void ModelClient::run()
