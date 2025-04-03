@@ -68,7 +68,7 @@ namespace gdeng03
 	}
 
 	GameObjectPtr GameObjectManager::createObject(const std::filesystem::path& modelPath,
-	                                              const std::string& objectName = "Model")
+	                                              const std::string& objectName)
 	{
 		const GameObjectPtr mesh = std::make_shared<GameObject>(objectName + " Mesh");
 

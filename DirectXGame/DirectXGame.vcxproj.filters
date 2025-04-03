@@ -360,9 +360,11 @@
     <ClCompile Include="RandomUtils.cpp">
       <Filter>GameEngine\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="SceneLoaderScreen.cpp" />
     <ClCompile Include="IExecutionEvent.cpp">
       <Filter>Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneLoaderScreen.cpp">
+      <Filter>GameEngine\UISystem\Screens</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -642,9 +644,11 @@
     <ClInclude Include="RandomUtils.h">
       <Filter>GameEngine\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="SceneLoaderScreen.h" />
     <ClInclude Include="IExecutionEvent.h">
       <Filter>Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneLoaderScreen.h">
+      <Filter>GameEngine\UISystem\Screens</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,7 @@
 #include "InspectorScreen.h"
 #include "PlaybackScreen.h"
 #include "ProfilerScreen.h"
+#include "SceneLoaderScreen.h"
 #include "ToolsScreen.h"
 #include "ViewportManager.h"
 
@@ -155,8 +156,11 @@ namespace gdeng03
 		// this->uiMap[toolsScreen->getName()] = toolsScreen;
 		// this->uiList.push_back(toolsScreen);
 
-		ViewportManager::get()->createViewport();
+		const std::shared_ptr<SceneLoaderScreen> sceneLoaderScreen = std::make_shared<SceneLoaderScreen>();
+		this->uiMap[sceneLoaderScreen->getName()] = sceneLoaderScreen;
+		this->uiList.push_back(sceneLoaderScreen);
 
+		ViewportManager::get()->createViewport();
 	}
 
 	UIManager::~UIManager()

@@ -6,6 +6,7 @@ namespace gdeng03
 {
 	Texture::Texture(const wchar_t* fullPath) : Resource(fullPath)
 	{
+		LogUtils::logHResult(this, CoInitializeEx(nullptr, COINIT_MULTITHREADED));
 		DirectX::ScratchImage imageData;
 		LogUtils::logHResult(
 			this,

@@ -98,14 +98,6 @@ namespace gdeng03
 		InputSystem::get()->addListener(this);
 
 		this->solidState = renderSystem->createRasterizerState(D3D11_FILL_SOLID, D3D11_CULL_BACK);
-
-		std::mutex* coutMutex = new std::mutex();
-		ModelClient* client0 = new ModelClient("localhost:50051", "dragon", coutMutex);
-		client0->start();
-
-		ModelClient* client1 = new ModelClient("localhost:50051", "armadillo", coutMutex);
-		client1->start();
-
 	}
 
 	void AppWindow::draw(const int width, const int height, const EFillMode fillMode) const
