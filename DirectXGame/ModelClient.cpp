@@ -31,7 +31,7 @@ std::string ModelClient::getModel(const std::string& model) const
 	request.set_modelname(model);
 
 	const std::chrono::time_point deadline = std::chrono::system_clock::now() +
-		std::chrono::milliseconds(20000);
+		std::chrono::milliseconds(30000);
 	context.set_deadline(deadline);
 
 	std::string fileName = assetsPath.string() + modelName + ".obj";

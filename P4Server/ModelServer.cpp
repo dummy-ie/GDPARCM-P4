@@ -9,7 +9,7 @@
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/health_check_service_interface.h>
 
-ModelServer::ModelServer(bool& isRunning): isRunning(isRunning)
+ModelServer::ModelServer(bool& isRunning) : isRunning(isRunning)
 {
 }
 
@@ -27,14 +27,22 @@ grpc::Status ModelServer::GetModel(grpc::ServerContext* context, const ModelRequ
 	// std::ifstream in(path);
 	// in.read(content.data(), size);
 
-	const std::ifstream t(path, std::ios::binary);
-	std::stringstream reply;
-	reply << t.rdbuf();
+	std::ifstream t(path, std::ios::binary);
+	std::string line;
+	int numBytesToRead = 10 * 1024; // 10KB
 
-	ModelReply modelReply;
-	modelReply.set_objfile(reply.str());
+	while (t)
+	{
+		std::vector<char> buffer(numBytesToRead);
+		t.read(buffer.data(), buffer.size());
+		if (std::streamsize bytesRead = t.gcount(); bytesRead > 0)
+		{
+			ModelReply modelReply;
+			modelReply.set_objfile(std::string(buffer.data(), bytesRead));
+			writer->Write(modelReply);
+		}
+	}
 
-	writer->Write(modelReply);
 	std::cout << log;
 	return grpc::Status::OK;
 }
@@ -56,7 +64,7 @@ void ModelServer::runServer(uint16_t port)
 	builder.SetMaxReceiveMessageSize(INT_MAX);
 	builder.SetMaxSendMessageSize(INT_MAX);
 	// builder.SetMaxMessageSize(INT_MAX);
-	
+
 	// Finally assemble the server.
 	server = builder.BuildAndStart();
 	std::cout << "Server listening on " << serverAddress << std::endl;
