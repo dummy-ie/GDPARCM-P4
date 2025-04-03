@@ -371,3 +371,11 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 DirectXGame/imgui.ini
+DirectXGame/libraries/grpc_protobuf/modelLoader.pb.h
+DirectXGame/libraries/grpc_protobuf/modelLoader.pb.cc
+DirectXGame/libraries/grpc_protobuf/modelLoader.grpc.pb.h
+DirectXGame/libraries/grpc_protobuf/modelLoader.grpc.pb.cc
+DirectXGame/libraries/grpc_protobuf/sceneLoader.grpc.pb.cc
+DirectXGame/libraries/grpc_protobuf/sceneLoader.grpc.pb.h
+DirectXGame/libraries/grpc_protobuf/sceneLoader.pb.cc
+DirectXGame/libraries/grpc_protobuf/sceneLoader.pb.h
