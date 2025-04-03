@@ -101,10 +101,10 @@ namespace gdeng03
 
 		std::mutex* coutMutex = new std::mutex();
 		ModelClient* client0 = new ModelClient("localhost:50051", "dragon", coutMutex);
-		client0->run();
+		client0->start();
 
 		ModelClient* client1 = new ModelClient("localhost:50051", "armadillo", coutMutex);
-		client1->run();
+		client1->start();
 
 	}
 
