@@ -14,8 +14,8 @@ ModelClient::ModelClient(const std::string& target, const std::string& modelName
 	this->modelName = modelName;
 
 	grpc::ChannelArguments channelArgs;
-	channelArgs.SetMaxReceiveMessageSize(INT_MAX);  // Increase max receive size
-	channelArgs.SetMaxSendMessageSize(INT_MAX);    // Increase max send size
+	// channelArgs.SetMaxReceiveMessageSize(INT_MAX);  // Increase max receive size
+	// channelArgs.SetMaxSendMessageSize(INT_MAX);    // Increase max send size
 	this->stub_ = ModelLoader::NewStub(grpc::CreateCustomChannel(target, grpc::InsecureChannelCredentials(), channelArgs));
 }
 
