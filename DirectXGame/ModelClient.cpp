@@ -8,8 +8,9 @@
 #include "MathUtil.h"
 #include "RandomUtils.h"
 
-ModelClient::ModelClient(const std::string& target, const std::string& modelName, std::mutex* coutMutex)
+ModelClient::ModelClient(const std::string& target, const std::string& modelName, std::mutex* coutMutex, gd::IExecutionEvent* event)
 {
+	this->event = event;
 	this->coutMutex = coutMutex;
 	this->modelName = modelName;
 
@@ -83,6 +84,8 @@ void ModelClient::runClient() const
 
 	gdeng03::LogUtils::log("Model " + modelName + " received successfully.");
 	gdeng03::LogUtils::log(this, "Model is stored at " + reply);
+
+	event->onFinishedModelDownload(reply);
 
 	// const auto newObj = gdeng03::GameObjectManager::get()->createObject(reply, modelName);
 	// newObj->setPosition(gdeng03::randomRangeVector3D(-2, 2));
