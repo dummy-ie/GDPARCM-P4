@@ -28,6 +28,15 @@ void SceneLoaderScreen::draw()
         ModelClient* client1 = new ModelClient("localhost:50051", "armadillo", this->coutMutex);
         client1->start();
 
+        ModelClient* client2 = new ModelClient("localhost:50051", "car", this->coutMutex);
+        client2->start();
+
+        ModelClient* client3 = new ModelClient("localhost:50051", "bugatti", this->coutMutex);
+        client3->start();
+
+        ModelClient* client4 = new ModelClient("localhost:50051", "bunny", this->coutMutex);
+        client4->start();
+
     }
     ImGui::SameLine();
     if (ImGui::Button("Scene 2"))

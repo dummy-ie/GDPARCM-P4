@@ -24,8 +24,9 @@ namespace gdeng03
 		{
 			mesh = new Mesh(filePath);
 		}
-		catch (std::exception& e)
+		catch (std::exception& exc)
 		{
+			std::cerr << exc.what();
 			throw;
 		}
 

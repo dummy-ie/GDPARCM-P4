@@ -27,12 +27,12 @@ namespace gdeng03
 		LogUtils::logBool(
 			this,
 			tinyobj::LoadObj(&attributes, &shapes, &materials, &warn, &err, inputFile.c_str()),
-			false
+			true
 		);
 
 		if (!err.empty()) throw std::exception(std::string("Mesh not created successfully: " + err).c_str());
 
-		if (shapes.size() > 1) throw std::exception("Mesh not created successfully");
+		if (shapes.size() < 1) throw std::exception("Mesh has no shapes!");
 
 		std::vector<VertexMesh> listVertices;
 		std::vector<unsigned int> listIndices;

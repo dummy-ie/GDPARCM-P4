@@ -2,7 +2,6 @@
 #include <string>
 #include "modelLoader.grpc.pb.h"
 #include "IETThread.h"
-#include "IExecutionEvent.h"
 
 using grpc::Channel;
 using grpc::ClientContext;
