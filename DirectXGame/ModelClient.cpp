@@ -39,6 +39,7 @@ std::string ModelClient::getModel(const std::string& model) const
 	const std::unique_ptr reader(stub_->GetModel(&context, request));
 	while (reader->Read(&reply)) 
 	{
+		//sleep(1000);
 		std::cout << "Received " << reply.objfile().size() << " bytes\n";
 		out << reply.objfile();
 	}

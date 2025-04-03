@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\DirectXGame\IETThread.cpp" />
     <ClCompile Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.grpc.pb.cc" />
     <ClCompile Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.pb.cc" />
     <ClCompile Include="..\DirectXGame\libraries\grpc_protobuf\sceneLoader.grpc.pb.cc" />
@@ -141,6 +142,7 @@
     <ClCompile Include="ModelServer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\DirectXGame\IETThread.h" />
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.grpc.pb.h" />
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\modelLoader.pb.h" />
     <ClInclude Include="..\DirectXGame\libraries\grpc_protobuf\sceneLoader.grpc.pb.h" />
