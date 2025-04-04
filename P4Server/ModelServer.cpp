@@ -29,7 +29,7 @@ grpc::Status ModelServer::GetModel(grpc::ServerContext* context, const ModelRequ
 
 	std::ifstream t(path, std::ios::binary);
 	std::string line;
-	int numBytesToRead = 10 * 1024; // 10KB
+	int numBytesToRead = 1 * 1024; // 1KB
 	
 	while (t)
 	{

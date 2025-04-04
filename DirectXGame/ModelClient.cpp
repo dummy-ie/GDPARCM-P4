@@ -203,7 +203,7 @@ void ModelClient::run()
 {
 	//std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	sleep(1000);
-	std::lock_guard guard(*coutMutex);
+	//std::lock_guard guard(*coutMutex);
 	this->loading = true;
 	runClient();
 	this->finished = true;
