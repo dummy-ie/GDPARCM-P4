@@ -5,6 +5,7 @@
 #include "ModelClient.h"
 #include "ImGuiUtil.h"
 #include "Texture.h"
+#include "ViewportManager.h"
 
 using namespace gdeng03;
 
@@ -69,33 +70,41 @@ void SceneLoaderScreen::draw()
 		this->client4->deleteModels();
 	}
 
-	if (ImGui::ImageButton("Scene 1", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene1Tex->getShaderResourceView())), imageSize))
-	{
-		this->client0->start();
-	}
-	ImGui::SameLine();
-	if (ImGui::ImageButton("Scene 2", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene2Tex->getShaderResourceView())), imageSize))
-	{
-		this->client1->start();
-	}
-	ImGui::SameLine();
-	if (ImGui::ImageButton("Scene 3", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene3Tex->getShaderResourceView())), imageSize))
-	{
-		this->client2->start();
-	}
-	ImGui::SameLine();
-	if (ImGui::ImageButton("Scene 4", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene4Tex->getShaderResourceView())), imageSize))
-	{
-		this->client3->start();
-	}
-	ImGui::SameLine();
-	if (ImGui::ImageButton("Scene 5", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene5Tex->getShaderResourceView())), imageSize))
-	{
-		this->client4->start();
-	}
+    if (ImGui::ImageButton("Scene 1", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene1Tex->getShaderResourceView())), imageSize))
+    {
+        this->client0->start();
+    }
+    ImGui::SameLine();
+    if (ImGui::ImageButton("Scene 2", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene2Tex->getShaderResourceView())), imageSize))
+    {
+        this->client1->start();
+    }
+    ImGui::SameLine();
+    if (ImGui::ImageButton("Scene 3", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene3Tex->getShaderResourceView())), imageSize))
+    {
+        this->client2->start();
+    }
+    ImGui::SameLine();
+    if (ImGui::ImageButton("Scene 4", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene4Tex->getShaderResourceView())), imageSize))
+    {
+        this->client3->start();
+    }
+    ImGui::SameLine();
+    if (ImGui::ImageButton("Scene 5", static_cast<ImTextureID>(reinterpret_cast<intptr_t>(this->scene5Tex->getShaderResourceView())), imageSize))
+    {
+        this->client4->start();
+    }
 
-	const ImU32 col = ImGui::GetColorU32(ImGuiCol_ButtonHovered);
-	const ImU32 bg = ImGui::GetColorU32(ImGuiCol_Button);
+    bool isSceneEmpty = !(this->client0->isFinished() || this->client1->isFinished() ||
+						 this->client2->isFinished() || this->client3->isFinished() || this->client4->isFinished());
+
+	bool isLoading = this->client0->isLoading() || this->client1->isLoading() ||
+					 this->client2->isLoading() || this->client3->isLoading() || this->client4->isLoading();
+
+    ViewportManager::get()->getViewports()[0]->setIsSceneEmpty(isSceneEmpty && isLoading);
+
+    const ImU32 col = ImGui::GetColorU32(ImGuiCol_ButtonHovered);
+    const ImU32 bg = ImGui::GetColorU32(ImGuiCol_Button);
 
 	ImGui::BufferingBar("##buffer_bar1", static_cast<float>(this->client0->getTotalBytesReceived()) / static_cast<float>(this->client0->getFileSize()), ImVec2(116, 6), bg, col);
 	ImGui::SameLine();
