@@ -30,7 +30,7 @@ grpc::Status ModelServer::GetModel(grpc::ServerContext* context, const ModelRequ
 	std::ifstream t(path, std::ios::binary);
 	std::string line;
 	int numBytesToRead = 10 * 1024; // 10KB
-
+	
 	while (t)
 	{
 		std::vector<char> buffer(numBytesToRead);
@@ -62,8 +62,8 @@ void ModelServer::runServer(uint16_t port)
 	builder.RegisterService(this);
 
 	// Set max message size to 2GB. lol. HAHAHAHA
-	builder.SetMaxReceiveMessageSize(INT_MAX);
-	builder.SetMaxSendMessageSize(INT_MAX);
+	// builder.SetMaxReceiveMessageSize(INT_MAX);
+	// builder.SetMaxSendMessageSize(INT_MAX);
 	// builder.SetMaxMessageSize(INT_MAX);
 
 	// Finally assemble the server.
