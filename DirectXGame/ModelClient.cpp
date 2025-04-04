@@ -163,6 +163,26 @@ void ModelClient::runClient()
 		const auto newObj = gdeng03::GameObjectManager::get()->createObject(reply, name);
 		newObj->setPosition(gdeng03::randomRangeVector3D(-2, 2));
 		newObj->setRotation(gdeng03::randomRangeVector3D(0, 360));
+		 newObj->setLocalScale(gdeng03::Vector3D(0.1f, 0.1f, 0.1f));
+
+		for (const std::vector<std::string> modelNames = {
+			"lucy",
+			"airplane",
+			"pine",
+			"cottage",
+			"mount",
+			"airboat",
+			"diamond",
+			"dodecahedron",
+			"alfa147",
+			"whiteOak"
+		}; std::string modelName : modelNames)
+		{
+			if (name == modelName)
+			{
+				newObj->setLocalScale(gdeng03::Vector3D(0.001f, 0.001f, 0.001f));
+			}
+		}
 	}
 }
 
