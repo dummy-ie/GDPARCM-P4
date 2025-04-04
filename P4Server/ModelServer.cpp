@@ -22,6 +22,8 @@ grpc::Status ModelServer::GetModel(grpc::ServerContext* context, const ModelRequ
 	const std::filesystem::path path = assetsPath / name;
 	std::cout << "Path: " << path << '\n';
 
+	const std::vector<std::string> modelNames3 = { "gourd", "humanoid_quad", "icosahedron", "lamp", "magnolia" };
+
 	// const auto size = std::filesystem::file_size(path);
 	// std::string content(size, '\0');
 	// std::ifstream in(path);
@@ -30,7 +32,16 @@ grpc::Status ModelServer::GetModel(grpc::ServerContext* context, const ModelRequ
 	std::ifstream t(path, std::ios::binary);
 	std::string line;
 	int numBytesToRead = 1 * 1024; // 1KB
-	
+
+	for (const std::string& names3 : modelNames3)
+	{
+		if (request->modelname() == names3)
+		{
+			numBytesToRead = 128; // 1MB
+			break;
+		}
+	}
+
 	while (t)
 	{
 		std::vector<char> buffer(numBytesToRead);
