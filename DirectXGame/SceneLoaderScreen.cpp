@@ -12,14 +12,13 @@ SceneLoaderScreen::SceneLoaderScreen() : UIScreen("SceneLoaderScreen")
     this->coutMutex = new std::mutex();
     this->readMutex = new std::mutex();
 
-
 	LogUtils::log(this, "Initialized");
 
-    ModelClient* client0 = new ModelClient("localhost:50051", "dragon", this->coutMutex, this->readMutex);
-    ModelClient* client1 = new ModelClient("localhost:50051", "armadillo", this->coutMutex, this->readMutex);
-    ModelClient* client2 = new ModelClient("localhost:50051", "lucy", this->coutMutex, this->readMutex);
-    ModelClient* client3 = new ModelClient("localhost:50051", "teapot", this->coutMutex, this->readMutex);
-    ModelClient* client4 = new ModelClient("localhost:50051", "bunny", this->coutMutex, this->readMutex);
+    client0 = new ModelClient("localhost:50051", "dragon", this->coutMutex);
+    client1 = new ModelClient("localhost:50051", "armadillo", this->coutMutex);
+    client2 = new ModelClient("localhost:50051", "lucy", this->coutMutex);
+    client3 = new ModelClient("localhost:50051", "teapot", this->coutMutex);
+    client4 = new ModelClient("localhost:50051", "bunny", this->coutMutex);
 }
 
 SceneLoaderScreen::~SceneLoaderScreen()
