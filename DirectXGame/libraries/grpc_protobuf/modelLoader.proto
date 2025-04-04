@@ -4,6 +4,7 @@ service ModelLoader
 {
 	// Server streaming RPC, as the models have many vertices = many data
 	rpc GetModel (ModelRequest) returns (stream ModelReply) {}
+	rpc GetModelSize (ModelRequest) returns (stream ModelReply) {}
 }
 
 message ModelRequest

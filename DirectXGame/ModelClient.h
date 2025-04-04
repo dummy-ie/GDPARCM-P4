@@ -20,6 +20,7 @@ public:
 private:
 	void runClient();
 	std::string getModel(const std::string& model);
+	int32_t getModelSize(const std::string& model);
 
 
 private:
@@ -30,7 +31,5 @@ private:
 	std::vector<std::string> modelNames;
 	std::unique_ptr<ModelLoader::Stub> stub_;
 	std::filesystem::path assetsPath = std::filesystem::path("assets/models/");
-
-	
 };
 

@@ -52,7 +52,6 @@ std::string ModelClient::getModel(const std::string& model)
 		//sleep(1000);
 		//std::cout << "File Size " << reply.objfilesize() << "\n";
 		//std::cout << "Received " << reply.objfile().size() << " bytes\n";
-		this->fileSize_ = reply.objfilesize();
 		this->totalBytesReceived_ += reply.objfile().size();
 
 		out << reply.objfile();
@@ -68,16 +67,43 @@ std::string ModelClient::getModel(const std::string& model)
 			<< '\n';
 		return "RPC failed";
 	}
+}
 
-	// if (const grpc::Status status = stub_->GetModel(&context, request, &reply);
-	// 	status.ok()) {
-	// 	return reply.objfile();
-	// }
-	// else {
-	// 	std::cout << status.error_code() << ": " << status.error_message()
-	// 		<< '\n';
-	// 	return "RPC failed";
-	// }
+int32_t ModelClient::getModelSize(const std::string& model)
+{
+	std::cout << "Requesting " + model + " from server. \n";
+
+	ModelRequest request;
+	ModelReply reply;
+	grpc::ClientContext context;
+
+	request.set_modelname(model);
+
+	const std::chrono::time_point deadline = std::chrono::system_clock::now() +
+		std::chrono::milliseconds(30000);
+	context.set_deadline(deadline);
+
+	std::string fileName = assetsPath.string() + model + ".obj";
+	std::ofstream out(fileName, std::ios::binary);
+	const std::unique_ptr reader(stub_->GetModelSize(&context, request));
+
+	int32_t fileSize;
+
+	while (reader->Read(&reply))
+	{
+		fileSize = reply.objfilesize();
+	}
+
+	if (Status status = reader->Finish(); status.ok())
+	{
+		return fileSize;
+	}
+	else
+	{
+		std::cout << status.error_code() << ": " << status.error_message()
+			<< '\n';
+		return -1;
+	}
 }
 
 uint32_t ModelClient::getFileSize()
@@ -97,6 +123,20 @@ ModelClient::~ModelClient()
 
 void ModelClient::runClient()
 {
+	for (std::string name : modelNames)
+	{
+		const int32_t reply = getModelSize(name);
+
+		if (reply == -1)
+		{
+			gdeng03::LogUtils::error("RPC failed");
+			return;
+		}
+		gdeng03::LogUtils::log("Model " + name + " file size received successfully.");
+
+		this->fileSize_ += reply;
+	}
+	this->fileSize_--;
 	for (std::string name : modelNames)
 	{
 		const std::string reply = getModel(name);

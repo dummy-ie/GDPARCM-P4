@@ -38,11 +38,27 @@ grpc::Status ModelServer::GetModel(grpc::ServerContext* context, const ModelRequ
 		if (std::streamsize bytesRead = t.gcount(); bytesRead > 0)
 		{
 			ModelReply modelReply;
-			modelReply.set_objfilesize(std::filesystem::file_size(path));
 			modelReply.set_objfile(std::string(buffer.data(), bytesRead));
 			writer->Write(modelReply);
 		}
 	}
+
+	std::cout << log;
+	return grpc::Status::OK;
+}
+
+grpc::Status ModelServer::GetModelSize(grpc::ServerContext* context, const ModelRequest* request,
+	grpc::ServerWriter<ModelReply>* writer)
+{
+	const std::string name(request->modelname() + ".obj");
+	const std::string log("Sending " + name + " to client...\n");
+	const std::filesystem::path path = assetsPath / name;
+	std::cout << "Path: " << path << '\n';
+
+	ModelReply modelReply;
+	modelReply.set_objfilesize(std::filesystem::file_size(path));
+
+	writer->Write(modelReply);
 
 	std::cout << log;
 	return grpc::Status::OK;

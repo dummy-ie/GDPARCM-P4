@@ -9,6 +9,7 @@ public:
 	ModelServer(bool& isRunning);
 
 	grpc::Status GetModel(grpc::ServerContext* context, const ModelRequest* request, grpc::ServerWriter<ModelReply>* writer) override;
+	grpc::Status GetModelSize(grpc::ServerContext* context, const ModelRequest* request, grpc::ServerWriter<ModelReply>* writer) override;
 	void runServer(uint16_t port);
 
 	//void stop();
