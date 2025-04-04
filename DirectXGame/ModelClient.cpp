@@ -11,9 +11,19 @@
 ModelClient::ModelClient(const std::string& target, const std::string& modelName, std::mutex* coutMutex)
 {
 	this->coutMutex = coutMutex;
-	this->modelName = modelName;
+	this->modelNames.push_back(modelName);
 
-	grpc::ChannelArguments channelArgs;
+	const grpc::ChannelArguments channelArgs;
+	// channelArgs.SetMaxReceiveMessageSize(INT_MAX);  // Increase max receive size
+	// channelArgs.SetMaxSendMessageSize(INT_MAX);    // Increase max send size
+	this->stub_ = ModelLoader::NewStub(grpc::CreateCustomChannel(target, grpc::InsecureChannelCredentials(), channelArgs));
+}
+
+ModelClient::ModelClient(const std::string& target, const std::vector<std::string>& modelNames, std::mutex* coutMutex)
+{
+	this->coutMutex = coutMutex;
+	this->modelNames = modelNames;
+	const grpc::ChannelArguments channelArgs;
 	// channelArgs.SetMaxReceiveMessageSize(INT_MAX);  // Increase max receive size
 	// channelArgs.SetMaxSendMessageSize(INT_MAX);    // Increase max send size
 	this->stub_ = ModelLoader::NewStub(grpc::CreateCustomChannel(target, grpc::InsecureChannelCredentials(), channelArgs));
@@ -34,10 +44,10 @@ std::string ModelClient::getModel(const std::string& model) const
 		std::chrono::milliseconds(30000);
 	context.set_deadline(deadline);
 
-	std::string fileName = assetsPath.string() + modelName + ".obj";
+	std::string fileName = assetsPath.string() + model + ".obj";
 	std::ofstream out(fileName, std::ios::binary);
 	const std::unique_ptr reader(stub_->GetModel(&context, request));
-	while (reader->Read(&reply)) 
+	while (reader->Read(&reply))
 	{
 		//sleep(1000);
 		std::cout << "Received " << reply.objfile().size() << " bytes\n";
@@ -73,20 +83,23 @@ ModelClient::~ModelClient()
 
 void ModelClient::runClient() const
 {
-	const std::string reply = getModel(modelName);
-
-	if (reply == "RPC failed")
+	for (std::string name : modelNames)
 	{
-		gdeng03::LogUtils::error(reply);
-		return;
+		const std::string reply = getModel(name);
+
+		if (reply == "RPC failed")
+		{
+			gdeng03::LogUtils::error(reply);
+			return;
+		}
+
+		gdeng03::LogUtils::log("Model " + name + " received successfully.");
+		gdeng03::LogUtils::log(this, "Model is stored at " + reply);
+
+		const auto newObj = gdeng03::GameObjectManager::get()->createObject(reply, name);
+		newObj->setPosition(gdeng03::randomRangeVector3D(-2, 2));
+		newObj->setRotation(gdeng03::randomRangeVector3D(0, 360));
 	}
-
-	gdeng03::LogUtils::log("Model " + modelName + " received successfully.");
-	gdeng03::LogUtils::log(this, "Model is stored at " + reply);
-
-	const auto newObj = gdeng03::GameObjectManager::get()->createObject(reply, modelName);
-	newObj->setPosition(gdeng03::randomRangeVector3D(-2, 2));
-	newObj->setRotation(gdeng03::randomRangeVector3D(0, 360));
 }
 
 void ModelClient::run()
