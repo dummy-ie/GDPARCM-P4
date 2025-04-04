@@ -37,7 +37,7 @@ grpc::Status ModelServer::GetModel(grpc::ServerContext* context, const ModelRequ
 	{
 		if (request->modelname() == names3)
 		{
-			numBytesToRead = 128; // 1MB
+			numBytesToRead = 16;
 			break;
 		}
 	}
