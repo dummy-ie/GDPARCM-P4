@@ -116,6 +116,16 @@ uint32_t ModelClient::getTotalBytesReceived()
 	return this->totalBytesReceived_;
 }
 
+void ModelClient::deleteModels()
+{
+	for (std::string name : modelNames)
+	{
+		gdeng03::GameObjectManager::get()->deleteObjectByName(name + " Mesh");
+		//const std::string fileName = assetsPath.string() + name + ".obj";
+		//std::filesystem::remove(fileName);
+	}
+}
+
 ModelClient::~ModelClient()
 {
 	delete this;

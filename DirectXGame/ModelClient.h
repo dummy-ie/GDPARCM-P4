@@ -17,6 +17,8 @@ public:
 	uint32_t getFileSize();
 	uint32_t getTotalBytesReceived();
 
+	void deleteModels();
+
 private:
 	void runClient();
 	std::string getModel(const std::string& model);
