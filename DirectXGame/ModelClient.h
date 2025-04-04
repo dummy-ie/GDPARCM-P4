@@ -18,6 +18,8 @@ public:
 	uint32_t getTotalBytesReceived();
 
 	void deleteModels();
+	bool isFinished();
+	bool isLoading();
 
 private:
 	void runClient();
@@ -33,5 +35,8 @@ private:
 	std::vector<std::string> modelNames;
 	std::unique_ptr<ModelLoader::Stub> stub_;
 	std::filesystem::path assetsPath = std::filesystem::path("assets/models/");
+
+	bool finished = false;
+	bool loading = false;
 };
 

@@ -8,6 +8,7 @@
 #include "GraphicsEngine.h"
 #include "DeviceContext.h"
 #include "EngineTime.h"
+#include "ImGuiUtil.h"
 #include "imgui_internal.h"
 #include "InputSystem.h"
 #include "ViewportManager.h"
@@ -37,6 +38,11 @@ namespace gdeng03
 	{
 		CameraManager::getInstance()->removeSceneCamera(this->ownCamera);
 		GraphicsEngine::get()->getRenderSystem()->getImmediateDeviceContext()->setRenderTarget(AppWindow::get()->getSwapChain()->getRenderTexture());
+	}
+
+	void ViewportScreen::setIsSceneEmpty(bool isSceneEmpty)
+	{
+		this->isSceneEmpty = isSceneEmpty;
 	}
 
 	void ViewportScreen::draw()
@@ -78,6 +84,12 @@ namespace gdeng03
 		ImGui::PopStyleVar();
 
 		this->drawViewportUI(position);
+
+		if (isSceneEmpty) {
+			const ImU32 col = ImGui::GetColorU32(ImGuiCol_ButtonHovered);
+			ImGui::SetCursorScreenPos({ viewportPanelSize.x / 2, viewportPanelSize.y / 2});
+			ImGui::Spinner("Spinner", 50.0f, 10, col);
+		}
 
 		ImGui::End();
 

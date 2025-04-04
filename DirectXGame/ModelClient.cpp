@@ -124,6 +124,19 @@ void ModelClient::deleteModels()
 		//const std::string fileName = assetsPath.string() + name + ".obj";
 		//std::filesystem::remove(fileName);
 	}
+	this->fileSize_ = 1;
+	this->totalBytesReceived_ = 0;
+	this->finished = false;
+}
+
+bool ModelClient::isFinished()
+{
+	return this->finished;
+}
+
+bool ModelClient::isLoading()
+{
+	return this->loading;
 }
 
 ModelClient::~ModelClient()
@@ -171,5 +184,8 @@ void ModelClient::run()
 	//std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	sleep(1000);
 	std::lock_guard guard(*coutMutex);
+	this->loading = true;
 	runClient();
+	this->finished = true;
+	this->loading = false;
 }

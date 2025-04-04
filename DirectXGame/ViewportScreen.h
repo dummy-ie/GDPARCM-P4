@@ -34,9 +34,13 @@ namespace gdeng03
 		int selectedState = 0;
 		int selectedCameraIndex;
 
+		bool isSceneEmpty = true;
+
 	public:
 		ViewportScreen(int index);
 		~ViewportScreen();
+
+		void setIsSceneEmpty(bool isSceneEmpty);
 
 	public:
 		virtual void draw() override;

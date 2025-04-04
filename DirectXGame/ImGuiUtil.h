@@ -4,8 +4,7 @@
 #include "imgui_internal.h"
 
 namespace ImGui {
-
-    bool BufferingBar(const char* label, float value, const ImVec2& size_arg, const ImU32& bg_col, const ImU32& fg_col) {
+    inline bool BufferingBar(const char* label, float value, const ImVec2& size_arg, const ImU32& bg_col, const ImU32& fg_col) {
         ImGuiWindow* window = GetCurrentWindow();
         if (window->SkipItems)
             return false;
@@ -48,7 +47,7 @@ namespace ImGui {
         window->DrawList->AddCircleFilled(ImVec2(pos.x + circleEnd - o3, bb.Min.y + r), r, bg_col);*/
     }
 
-    bool Spinner(const char* label, float radius, int thickness, const ImU32& color) {
+    inline bool Spinner(const char* label, float radius, int thickness, const ImU32& color) {
         ImGuiWindow* window = GetCurrentWindow();
         if (window->SkipItems)
             return false;

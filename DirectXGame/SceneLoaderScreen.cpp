@@ -5,6 +5,7 @@
 #include "ModelClient.h"
 #include "ImGuiUtil.h"
 #include "Texture.h"
+#include "ViewportManager.h"
 
 using namespace gdeng03;
 
@@ -89,7 +90,15 @@ void SceneLoaderScreen::draw()
     {
         this->client4->start();
     }
-    
+
+    bool isSceneEmpty = !(this->client0->isFinished() || this->client1->isFinished() ||
+						 this->client2->isFinished() || this->client3->isFinished() || this->client4->isFinished());
+
+	bool isLoading = this->client0->isLoading() || this->client1->isLoading() ||
+					 this->client2->isLoading() || this->client3->isLoading() || this->client4->isLoading();
+
+    ViewportManager::get()->getViewports()[0]->setIsSceneEmpty(isSceneEmpty && isLoading);
+
     const ImU32 col = ImGui::GetColorU32(ImGuiCol_ButtonHovered);
     const ImU32 bg = ImGui::GetColorU32(ImGuiCol_Button);
 
