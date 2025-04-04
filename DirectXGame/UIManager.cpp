@@ -148,9 +148,9 @@ namespace gdeng03
 		// this->uiMap[debugScreen->getName()] = debugScreen;
 		// this->uiList.push_back(debugScreen);
 		//
-		// const std::shared_ptr<ProfilerScreen> profilerScreen = std::make_shared<ProfilerScreen>();
-		// this->uiMap[profilerScreen->getName()] = profilerScreen;
-		// this->uiList.push_back(profilerScreen);
+		const std::shared_ptr<ProfilerScreen> profilerScreen = std::make_shared<ProfilerScreen>();
+		this->uiMap[profilerScreen->getName()] = profilerScreen;
+		this->uiList.push_back(profilerScreen);
 		//
 		// const std::shared_ptr<ToolsScreen> toolsScreen = std::make_shared<ToolsScreen>();
 		// this->uiMap[toolsScreen->getName()] = toolsScreen;
