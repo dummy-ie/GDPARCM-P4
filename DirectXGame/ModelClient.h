@@ -13,15 +13,24 @@ public:
 	ModelClient(const std::string& target, const std::string& modelName, std::mutex* coutMutex);
 	~ModelClient() override;
 	void run() override;
+	uint32_t getFileSize();
+	uint32_t getTotalBytesReceived();
 
 private:
-	void runClient() const;
-	std::string getModel(const std::string& model) const;
+	void runClient();
+	std::string getModel(const std::string& model);
+
 
 private:
+	uint32_t fileSize_ = 1;
+	uint32_t totalBytesReceived_ = 0;
+
 	std::mutex* coutMutex;
 	std::string modelName;
+	
 	std::unique_ptr<ModelLoader::Stub> stub_;
-	std::filesystem::path assetsPath = std::filesystem::path("assets/models/");;
+	std::filesystem::path assetsPath = std::filesystem::path("assets/models/");
+
+	
 };
 

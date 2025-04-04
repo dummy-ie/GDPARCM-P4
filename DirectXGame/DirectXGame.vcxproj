@@ -262,6 +262,7 @@
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="IETThread.h" />
     <ClInclude Include="IExecutionEvent.h" />
+    <ClInclude Include="ImGuiUtil.h" />
     <ClInclude Include="ModelClient.h" />
     <ClInclude Include="HierarchyScreen.h" />
     <ClInclude Include="InspectorScreen.h" />

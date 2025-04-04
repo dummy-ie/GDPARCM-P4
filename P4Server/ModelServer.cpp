@@ -38,6 +38,7 @@ grpc::Status ModelServer::GetModel(grpc::ServerContext* context, const ModelRequ
 		if (std::streamsize bytesRead = t.gcount(); bytesRead > 0)
 		{
 			ModelReply modelReply;
+			modelReply.set_objfilesize(std::filesystem::file_size(path));
 			modelReply.set_objfile(std::string(buffer.data(), bytesRead));
 			writer->Write(modelReply);
 		}

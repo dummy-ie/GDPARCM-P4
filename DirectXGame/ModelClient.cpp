@@ -20,7 +20,7 @@ ModelClient::ModelClient(const std::string& target, const std::string& modelName
 }
 
 
-std::string ModelClient::getModel(const std::string& model) const
+std::string ModelClient::getModel(const std::string& model)
 {
 	std::cout << "Requesting " + model + " from server. \n";
 
@@ -40,7 +40,11 @@ std::string ModelClient::getModel(const std::string& model) const
 	while (reader->Read(&reply)) 
 	{
 		//sleep(1000);
-		std::cout << "Received " << reply.objfile().size() << " bytes\n";
+		//std::cout << "File Size " << reply.objfilesize() << "\n";
+		//std::cout << "Received " << reply.objfile().size() << " bytes\n";
+		this->fileSize_ = reply.objfilesize();
+		this->totalBytesReceived_ += reply.objfile().size();
+
 		out << reply.objfile();
 	}
 
@@ -66,12 +70,22 @@ std::string ModelClient::getModel(const std::string& model) const
 	// }
 }
 
+uint32_t ModelClient::getFileSize()
+{
+	return this->fileSize_;
+}
+
+uint32_t ModelClient::getTotalBytesReceived()
+{
+	return this->totalBytesReceived_;
+}
+
 ModelClient::~ModelClient()
 {
 	delete this;
 }
 
-void ModelClient::runClient() const
+void ModelClient::runClient()
 {
 	const std::string reply = getModel(modelName);
 

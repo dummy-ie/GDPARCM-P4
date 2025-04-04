@@ -18,4 +18,5 @@ message ModelReply
   int32 texWidth = 2;
   int32 texHeight = 3;
   bytes texture = 4;
+  int32 objFileSize = 5;
 }

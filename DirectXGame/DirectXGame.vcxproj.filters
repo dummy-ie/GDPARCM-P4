@@ -650,6 +650,9 @@
     <ClInclude Include="SceneLoaderScreen.h">
       <Filter>GameEngine\UISystem\Screens</Filter>
     </ClInclude>
+    <ClInclude Include="ImGuiUtil.h">
+      <Filter>GameEngine\UISystem\Screens</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
